@@ -7,6 +7,14 @@ const Navbar = () => {
     const logonUser = useContext(LogonUser);
     console.log(logonUser);
 
+    function CheckRole() {
+        if ( logonUser.role=="user" ) {
+          return  <div><li><Link to='/user/updateUser'>개인정보수정</Link></li>  <li><Link to='/purchase/listPurchase'>구매이력조회</Link></li></div>;
+        } else if(logonUser.role=="admin") {
+          return <div> <li><Link to='/user/listUser'>회원목록조회</Link></li>  <li><Link to='/product/listProduct'>상품관리</Link></li>  </div>;
+        }
+      } 
+
     return (
         <div>            
             <div className="collapse navbar-collapse custom-navmenu" id="main-navbar">
@@ -15,12 +23,8 @@ const Navbar = () => {
                     <div className="col-md-2">
                     <ul className="custom-menu">
                         <li className="active"><a href="index.html">Home</a></li>
-                        <li><Link to='/ListProduct'>개인정보수정</Link></li> {/* 사용자만 */}
-                        <li><Link to='/ListProduct'>회원목록조회</Link></li> {/* 관리자만 */}
-                        <li><Link to='/ListProduct'>상품관리</Link></li> {/* 관리자만 */}
-                        <li><Link to='/ListProduct'>상품목록</Link></li>
-                        <li><Link to='/ListPurchase'>구매이력조회</Link></li> {/* 사용자만 */}
-
+                        <li><Link to='/product/listProduct'>상품목록</Link></li>
+                        <CheckRole/>
                         <li>
                         { !logonUser.userId ? (<Link to='/Logon'>Sign in</Link>):(<a href='/'>Sign out</a>) }
                         </li>
@@ -46,7 +50,7 @@ const Navbar = () => {
 
             <nav className="navbar navbar-light custom-navbar">
                 <div className="container">
-                <a className="navbar-brand" href="index.html">MVC2Shop.</a>
+                <Link to='/' className='navbar-brand'>MVC2Shop.</Link>
                 <a href="#" className="burger" data-bs-toggle="collapse" data-bs-target="#main-navbar">
                     <span></span>
                 </a>

@@ -28,13 +28,13 @@ const Logon = () => {
 
     console.log(userId,password);
 
-    axios.post('http://192.168.0.56:8080/user/json/login',{userId:userId, password:password}).then((response)=>{
+    axios.post('http://localhost:8080/user/json/login',{userId:userId, password:password}).then((response)=>{
       console.log(response.data);
       console.log(response.data.active);
 
       if(response.data.active){
         console.log("로그인 성공");
-        logonUser.changeLogon(response.data.userId);
+        logonUser.changeLogon(response.data);
         navigate('/Main');
       }else{
         alert("ID, PW를 확인하시고 다시 시도해주세요!");
@@ -53,7 +53,9 @@ const Logon = () => {
 				
       $("#loginWithKakao").on("click", function(){
 
-        axios.get('https://kauth.kakao.com/oauth/authorize?client_id=	e63e290b8b7712c5d19b6279f529cacf&redirect_uri=http://192.168.0.56:8080/user/login/kakao/authorization&response_type=code').then((response)=>{
+       
+        axios.get('https://kauth.kakao.com/oauth/authorize?client_id=e63e290b8b7712c5d19b6279f529cacf&redirect_uri=http://localhost:8080/user/login/kakao/authorization&response_type=code').then((response)=>{
+       
         console.log(response.data);
         console.log(response.data.active);
 
@@ -68,7 +70,6 @@ const Logon = () => {
         }
       });
 
-      document.location = "https://kauth.kakao.com/oauth/authorize?client_id=	e63e290b8b7712c5d19b6279f529cacf&redirect_uri=http://192.168.0.56:8080/user/login/kakao/authorization&response_type=code";
     });
     
   });	

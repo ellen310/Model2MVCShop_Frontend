@@ -13,12 +13,18 @@ const WorkSection = () => {
                 <div class="col-md-12 col-lg-6 text-start text-lg-end" data-aos="fade-up" data-aos-delay="100">
                     <div id="filters" class="filters">
                     <a href="#" data-filter="*" class="active">All</a>
-                    <a href="#" data-filter=".web">Web</a>
-                    <a href="#" data-filter=".design">Design</a>
-                    <a href="#" data-filter=".branding">Branding</a>
-                    <a href="#" data-filter=".photography">Photography</a>
+                    <a href="#" data-filter=".grocery">Grocery</a>
+                    <a href="#" data-filter=".beauty">Beauty</a>
+                    <a href="#" data-filter=".pets">Pets</a>
+                    <a href="#" data-filter=".clothing">Clothing</a>
                     </div>
                 </div>
+                <div>
+                    //검색창을 추가할거예요
+                </div>
+
+                
+
                 </div>
                 <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
                 <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">

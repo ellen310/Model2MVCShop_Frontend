@@ -25,12 +25,24 @@ function App() {
 
   console.log("App");
 
-  const [logon, setLogon] = useState({userId:null});
+  // const [logon, setLogon] = useState({userId:null});
 
-  const setChangLogon = (value)=>{
-    console.log(value);
-    setLogon({userId:value});
+  // const setChangLogon = (value)=>{
+  //   console.log(value);
+  //   setLogon({userId:value});
+  // }
+
+  const [logon, setLogon] = useState({
+                              userId:null,
+                              role:null});
+
+  const setChangLogon = (userInfo)=>{
+    console.log(userInfo);
+    setLogon({userId:userInfo.userId,
+              role:userInfo.role});
   }
+
+
 
   //logon state와 변경 가능한 function을 갖는 object.
   const content = {...logon, changeLogon:setChangLogon};
