@@ -1,0 +1,170 @@
+import React from 'react';
+import LogonUser from '../context/Context';
+import React, { useState, useContext, Component } from 'react';
+
+const WorkSection = () => {
+
+    const logonUser = useContext(LogonUser);
+
+    let currentPage = 1;
+
+
+    const getProductList = async() =>{
+        console.log("getProductList arrow function");
+    
+        //let userId = $('input:button').val();
+        //let password = $('input:password').val();
+    
+        axios.post('http://192.168.0.3:8080/product/json/listProduct',{userId:userId, password:password}).then((response)=>{
+          console.log(response.data);
+          console.log(response.data.active);
+    
+          if(response.data.active){
+            console.log("로그인 성공");
+            logonUser.changeLogon(response.data);
+            navigate('/Main');
+          }else{
+            alert("ID, PW를 확인하시고 다시 시도해주세요!");
+          }
+        });
+      }
+
+
+
+    return (
+        <div>
+            <section class="section site-portfolio">
+            <div class="container">
+                <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h2>Yeji's ALDI</h2>
+                    <p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>
+                </div>
+                <div class="col-md-12 col-lg-6 text-start text-lg-end" data-aos="fade-up" data-aos-delay="100">
+                    <div id="filters" class="filters">
+                    <a href="#" data-filter="*" class="active">All</a>
+                    <a href="#" data-filter=".grocery">Grocery</a>
+                    <a href="#" data-filter=".beauty">Beauty</a>
+                    <a href="#" data-filter=".pets">Pets</a>
+                    <a href="#" data-filter=".clothing">Clothing</a>
+                    </div>
+                </div>
+                <div>
+                    검색창을 추가할거예요
+                </div>
+
+
+
+
+                <div class="page-header text-info">
+                    <h3>{ logonUser.role=="admin"? "상품관리" : "상품목록조회"}</h3>
+                </div>
+	    
+                <div class="col-md-6 text-left">
+		    	<p class="text-primary">
+		    		전체  ${resultPage.totalCount } 건수, 현재 ${resultPage.currentPage}  페이지
+		    	</p>
+		        </div>
+
+		    
+
+                <div class="col-md-6 text-right">
+			    <form class="form-inline" name="detailForm" action="/product/listProduct?">
+			    
+				  <div class="form-group">
+				    <select class="form-control" name="searchCondition" >
+						<option value="1"  ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" }>상품명</option>
+						<option value="0"  ${ ! empty search.searchCondition && search.searchCondition==0 ? "selected" : "" }>상품번호</option>
+						<option value="2"  ${ ! empty search.searchCondition && search.searchCondition==2 ? "selected" : "" }>상품가격</option>
+					</select>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label class="sr-only" for="searchKeyword">검색어</label>
+				    <input type="text" class="form-control" id="searchKeyword" name="searchKeyword"  placeholder="검색어"
+				    			 value="${! empty search.searchKeyword ? search.searchKeyword : '' }"  >
+				  </div>
+				  
+				  <input type="hidden" id="menu" name="menu" value="${menu}"/>
+				  
+				  <button type="button" class="btn btn-default">검색</button>
+				  
+				  <!-- PageNavigation 선택 페이지 값을 보내는 부분 -->
+				  <input type="hidden" id="currentPage" name="currentPage" value=""/>
+				  
+                </form>
+                </div>
+
+
+
+                </div>
+                <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+                <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Boxed Water</h3>
+                        <span>Web</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_1.jpg"/>
+                    </a>
+                </div>
+                <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Build Indoo</h3>
+                        <span>Photography</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_2.jpg"/>
+                    </a>
+                </div>
+                <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Cocooil</h3>
+                        <span>Branding</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_3.jpg"/>
+                    </a>
+                </div>
+                <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Nike Shoe</h3>
+                        <span>Design</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_4.jpg"/>
+                    </a>
+                </div>
+                <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Kitchen Sink</h3>
+                        <span>Photography</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_5.jpg"/>
+                    </a>
+                </div>
+                <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <a href="work-single.html" class="item-wrap fancybox">
+                    <div class="work-info">
+                        <h3>Amazon</h3>
+                        <span>brandingn</span>
+                    </div>
+                    <img class="img-fluid" src="assets/img/img_6.jpg"/>
+                    </a>
+                </div>
+
+                <div class="col-md-6 mt-0 form-group">
+                    <input type="button" onClick={getProductList} class="readmore d-block w-100" value="더보기 +"/>
+                </div>
+
+
+
+                </div>
+            </div>
+            </section>
+        </div>
+    );
+};
+
+export default WorkSection;

@@ -9,7 +9,6 @@ import WorkSection from '../CommonComponents/WorkSection';
 const ListProduct = () => {
     return (
         <div>    
-            <Navbar/>
             <WorkSection/>
         </div>
     );

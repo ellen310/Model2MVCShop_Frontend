@@ -17,8 +17,6 @@ const TestimonialsSection = () => {
 
     return (
 
-        
-
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
 
@@ -44,9 +42,22 @@ const TestimonialsSection = () => {
                                     <div class="swiper-slide">
                                     <div class="testimonial-wrap">
                                         <div class="testimonial">
+                                        <img src="assets/img/person_1_sq.jpg" alt="Image" class="img-fluid"/>
+                                        <blockquote>
+                                            <p>배송 빠르네요 굿굿</p>
+                                        </blockquote>
+                                        <p>&mdash; Brenden Stanworth</p>
+                                        </div>
+                                    </div>
+                                    </div>{/* End testimonial item */}
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div class="swiper-slide">
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial">
                                         <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid"/>
                                         <blockquote>
-                                            <p>Yeji's ALDI가 제일 싸요! 빨리 사세요!!</p>
+                                            <p>여기가 제일 싸요! 빨리 사!!</p>
                                         </blockquote>
                                         <p>&mdash; Jean Hicks</p>
                                         </div>
@@ -59,14 +70,14 @@ const TestimonialsSection = () => {
                                         <div class="testimonial">
                                         <img src="assets/img/person_2.jpg" alt="Image" class="img-fluid"/>
                                         <blockquote>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                                            explicabo inventore.</p>
+                                            <p>코코오일 완전 좋아요!!</p>
                                         </blockquote>
                                         <p>&mdash; Chris Stanworth</p>
                                         </div>
                                     </div>
                                     </div>{/* End testimonial item */}
                                 </SwiperSlide>
+                                
                             </div>
                         <div class="swiper-pagination"></div>
                         </div>

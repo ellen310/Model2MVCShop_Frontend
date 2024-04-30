@@ -17,12 +17,10 @@ const Main = () => {
 
     return (
         <div>
-
-            <Navbar/>
+        
             <WorkSection/>
             <TestimonialsSection/>
             <ClientSection/>
-            <Footer/>
 
         </div>
     );

@@ -19,7 +19,7 @@ const User02 = () => {
 
   const axiosGet = async ()=>{
     try{
-      axios.get("http://192.168.0.3:8080/Spring15/user/getUser?name=홍길동&age=111").then((response)=>{
+      axios.get("http://192.168.0.9:8080/Spring15/user/getUser?name=홍길동&age=111").then((response)=>{
         console.log(response);
         console.log(response.data);
         setUser(response.data);

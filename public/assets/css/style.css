@@ -23,6 +23,18 @@ a:hover {
   color: #000;
 }
 
+
+Link {
+  color: #777;
+  text-decoration: none;
+}
+Link:hover {
+  color: #000;
+}
+
+
+
+
 h1,
 h2,
 h3,
@@ -501,3 +513,11 @@ h6,
 .social a:hover {
   color: #000;
 }
+
+
+
+
+
+
+
+

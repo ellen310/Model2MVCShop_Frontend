@@ -4,8 +4,17 @@ import LogonUser from '../context/Context';
 
 const Navbar = () => {
 
+    const logonUser = (JSON.parse(window.sessionStorage.getItem("logonUser")) || {userId:null,role:null});
+    console.log("이건 navbar에서 확인한 세션: "+logonUser.userId);
+
+    /* sessionStorage대신 context를 사용했었을 때.
     const logonUser = useContext(LogonUser);
     console.log(logonUser);
+    */
+
+    const Signout = () => {
+        window.sessionStorage.setItem("logonUser", null);
+    }
 
     function CheckRole() {
         if ( logonUser.role=="user" ) {
@@ -26,7 +35,7 @@ const Navbar = () => {
                         <li><Link to='/product/listProduct'>상품목록</Link></li>
                         <CheckRole/>
                         <li>
-                        { !logonUser.userId ? (<Link to='/Logon'>Sign in</Link>):(<a href='/'>Sign out</a>) }
+                        { !logonUser.userId ? (<Link to='/Logon'>Sign in</Link>):(<a href='/' onClick={Signout}>Sign out</a>) }
                         </li>
                         
                     </ul>
