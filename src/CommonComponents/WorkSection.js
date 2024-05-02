@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import $ from 'jquery';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import ReactDOMServer from 'react-dom/server';
+import ProdNoContext from '../context/ProdNoContext';
+
 
 const WorkSection = () => {
 
@@ -19,23 +21,25 @@ const WorkSection = () => {
     let totalCount = 0;
 
     const navigate = useNavigate()
+    const productContext = useContext(ProdNoContext);
     
     useEffect( ()=>{
         console.log("WorkSection.useEffect");
         productListGet();
     },[]); 
 
-
     useEffect(() => {
         const handleItemClick = (event) => {
           console.log('클릭된 요소의 prodNo:', event.target.querySelector('input').value);
-         navigate("/product/getProduct");
+          productContext.changeProduct(event.target.querySelector('input').value);
+
+          navigate("/product/getProduct");
         };
     
         // portfolio-grid의 자식 요소들(동적으로 생성되는 Product들)에게 클릭 이벤트를 할당
         document.getElementById('portfolio-grid').addEventListener('click', handleItemClick);
 
-      }, []); 
+    },[]); 
     
      
 

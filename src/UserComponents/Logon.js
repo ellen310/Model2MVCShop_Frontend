@@ -164,7 +164,7 @@ const Logon = () => {
                   </div>
 
                   <div class="col-md-6 mt-0 form-group" >
-                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=	e63e290b8b7712c5d19b6279f529cacf&redirect_uri=http://localhost:8080/user/login/kakao/authorization&response_type=code"><img src= "images/kakao_login_medium_narrow.png"></img></a>
+                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=	e63e290b8b7712c5d19b6279f529cacf&redirect_uri=http://192.168.0.56:8080/user/login/kakao/authorization&response_type=code"><img src= "images/kakao_login_medium_narrow.png"></img></a>
                     {/* <img id="loginWithKakao"  src= "images/kakao_login_medium_narrow.png"/> */} 
                   </div>
 
